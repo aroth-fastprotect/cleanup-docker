@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
 set -ex
-docker image build -t jaedle/cleanup-docker:development .
+docker image build -t rothan/cleanup-docker:development .
 docker container run --rm -it \
+    -e INITIAL_DELAY=0 \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    jaedle/cleanup-docker:development
+    rothan/cleanup-docker:development
